@@ -1,0 +1,518 @@
+/* === SECTION 1: Hero === */
+.natal-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 150px 0 50px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.natal-hero__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.natal-hero__background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+/* Градиентный переход - максимально плавный и размытый */
+.natal-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to bottom,
+            rgba(13, 24, 45, 0) 0%,
+            rgba(13, 24, 45, 0.8) 50%,
+            rgba(13, 24, 45, 1) 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.natal-hero__content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: var(--container-max-width);
+    padding: var(--container-padding);
+}
+
+.natal-hero__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-4xl);
+    font-weight: 400;
+    color: var(--color-gold);
+    text-align: center;
+}
+
+/* === SECTION 2: Main Natal Chart === */
+.natal-main {
+    position: relative;
+    padding: 0 var(--container-padding) var(--section-padding-large);
+    z-index: 1;
+}
+
+
+.natal-main__grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.natal-main__card {
+    background: linear-gradient(90deg, #FFFFFF 0%, #E1ECFA 100%);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.natal-main__card-title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+    color: rgba(23, 40, 72, 1);
+    text-align: center;
+}
+
+/* Натальная карта */
+.natal-chart-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+}
+
+.natal-chart-image {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+}
+
+.elements-grid {
+    position: absolute;
+    top: 100%;
+    left: -30px;
+    margin-top: 25%;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 15px 20px;
+    justify-content: start;
+    align-items: center;
+}
+
+.element-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.element-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.element-circle--fire {
+    background: radial-gradient(50% 50% at 50% 50%, #DEC8A1 0%, #C1A36A 100%);
+}
+
+.element-circle--water {
+    background: radial-gradient(50% 50% at 50% 50%, #33578C 0%, #3D67A6 100%);
+}
+
+.element-circle--earth {
+    background: radial-gradient(50% 50% at 50% 50%, #7E8891 0%, #6E6E6E 100%);
+}
+
+.element-circle--air {
+    background: radial-gradient(50% 50% at 50% 50%, #98C1F3 0%, #7397C4 100%);
+}
+
+.element-text {
+    font-family: var(--font-primary);
+    font-size: 15px;
+    font-weight: 300;
+    color: white;
+}
+
+/* Таблица планет */
+.planets-table {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px 30px;
+    align-items: start;
+}
+
+.planets-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.planets-column__header {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(23, 40, 72, 1);
+    margin-bottom: 5px;
+}
+
+.planet-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.planet-row img {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.planet-row__name {
+    font-family: var(--font-heading);
+    font-size: 19px;
+    font-weight: 400;
+    color: rgba(23, 40, 72, 1);
+}
+
+.planet-position,
+.planet-house {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--color-gray);
+}
+
+/* Описание */
+.natal-main__description {
+    font-family: var(--font-primary);
+    font-size: var(--fs-large);
+    font-weight: 100;
+    color: var(--color-white);
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    margin-top: 180px;
+}
+
+/* Кнопки */
+.natal-main__buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.natal-main__btn {
+    padding: 15px 120px;
+    font-size: 21px;
+    border-radius: 40px;
+}
+
+/* === SECTION 3: Planets in Signs/Houses === */
+.natal-planets {
+    position: relative;
+    padding: var(--section-padding-large);
+}
+
+/* Табы */
+.natal-tabs {
+    background: rgba(16, 26, 44, 0.74);
+    border: 1px solid rgba(222, 200, 161, 0.51);
+    border-radius: 40px;
+    padding: 0;
+    display: flex;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.natal-tabs__item {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: var(--fs-2xl);
+    font-weight: 400;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border-radius: 45px;
+}
+
+.natal-tabs__item--active {
+    background: rgba(95, 113, 135, 0.8226);
+    border: 1px solid rgba(222, 200, 161, 0.51);
+}
+
+/* Сетка планет в знаках */
+.planets-grid--signs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+}
+
+.planet-card {
+    background: rgba(16, 26, 44, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 16px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    backdrop-filter: blur(8.8px);
+}
+
+.planet-card__icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.planet-card__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-large);
+    font-weight: 400;
+    color: var(--color-gold);
+    text-align: center;
+}
+
+.planet-card__subtitle {
+    font-family: var(--font-primary);
+    font-size: var(--fs-small);
+    font-weight: 300;
+    color: var(--color-white);
+    text-align: center;
+}
+
+/* Сетка планет в домах */
+.planets-grid--houses {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Первый ряд - 3 карты */
+.planets-grid--houses-top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Второй и третий ряды - по 5 карт */
+.planets-grid--houses-bottom {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+}
+
+.house-card {
+    background: rgba(16, 26, 44, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 16px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    backdrop-filter: blur(8.8px);
+}
+
+
+/* === SECTION 4: Details === */
+.natal-details {
+    position: relative;
+    padding: var(--section-padding-large);
+}
+
+.natal-details__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+/* Большая карта */
+.detail-card--large {
+    background: linear-gradient(90deg, #FFFFFF 0%, #E1ECFA 100%);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.3);
+    grid-column: 1 / -1;
+}
+
+.detail-card__header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.detail-card__circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(217, 217, 217, 1);
+    flex-shrink: 0;
+}
+
+.detail-card__icon {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+}
+
+.detail-card__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+    color: rgba(23, 40, 72, 1);
+}
+
+.detail-card__text {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 300;
+    color: #000;
+    line-height: 1.6;
+}
+
+/* Разделенные карты */
+.detail-card--split {
+    background: rgba(23, 40, 72, 1);
+    /* Убираем фон отсюда */
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 25px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.3);
+}
+
+.detail-card__left {
+    background: rgba(23, 40, 72, 1);
+    padding: 40px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    /* Убираем border-radius отсюда */
+}
+
+
+.detail-card__left img {
+    width: 80px;
+    height: 80px;
+}
+
+.detail-card__right {
+    background: linear-gradient(90deg, #FFFFFF 0%, #E1ECFA 100%);
+    /* Переносим фон сюда */
+    padding: 20px 20px !important;
+    padding-left: 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    flex: 1;
+    border-radius: 25px;
+    /* Убираем border-radius отсюда */
+}
+
+.detail-card__subtitle {
+    font-family: var(--font-heading);
+    font-size: var(--fs-large);
+    font-weight: 700;
+    color: rgba(23, 40, 72, 1);
+}
+
+.detail-card__description {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 300;
+    color: #000;
+    line-height: 1.5;
+}
+
+/* === SECTION 5: Subscription === */
+.natal-subscription {
+    position: relative;
+    padding: var(--section-padding-large);
+}
+
+.natal-subscription__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-4xl);
+    font-weight: 400;
+    color: rgba(227, 206, 179, 1);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.natal-subscription__title-accent {
+    color: var(--color-white);
+}
+
+/* Карточки преимуществ */
+.subscription-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.benefit-card {
+    background: linear-gradient(90deg, #434F5E 0%, rgba(95, 113, 135, 0.822596) 99.99%, rgba(139, 165, 196, 0.55) 100%),
+        linear-gradient(0deg, rgba(16, 26, 44, 0.74), rgba(16, 26, 44, 0.74));
+    border: 1px solid rgba(222, 200, 161, 0.51);
+    border-radius: 15px;
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.benefit-card__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-large);
+    font-weight: 400;
+    color: var(--color-gold);
+}
+
+.benefit-card__text {
+    font-family: var(--font-heading);
+    font-size: var(--fs-large);
+    font-weight: 400;
+    color: var(--color-white);
+}
+
+/* Кнопка подписки */
+.natal-subscription__btn {
+    display: block;
+    margin: 0 auto;
+    padding: 12px 200px;
+    font-size: 21px;
+    font-weight: 300;
+    border-radius: 40px;
+}

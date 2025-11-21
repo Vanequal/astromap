@@ -1,0 +1,65 @@
+:root {
+  /* Colors */
+  --color-primary-gradient: linear-gradient(180deg, #DEC8A1 0%, #917F4E 100%);
+  --color-dark-blue: rgba(16, 26, 44, 1);
+  --color-dark-bg: #0D182D;
+  --color-secondary-bg: #162541;
+  --color-gold: rgba(227, 206, 179, 1);
+  --color-gold-light: rgba(222, 200, 161, 1);
+  --color-white: #fff;
+  --color-gray: rgba(73, 78, 84, 1);
+  --color-gray-light: rgba(217, 217, 217, 1);
+  --color-blue-card: rgba(55, 64, 76, 1);
+  --color-text-light: rgba(255, 255, 255, 1);
+  
+  /* Backgrounds */
+  --bg-gradient-primary: linear-gradient(0deg, #162541 0%, #0D182D 100%);
+  --bg-card: rgba(16, 26, 44, 0.85);
+  --bg-input: rgba(217, 217, 217, 1);
+  
+  /* Button Styles */
+  --btn-gradient: linear-gradient(180deg, #DEC8A1 0%, #917F4E 100%);
+  --btn-gradient-alt: linear-gradient(90deg, #C3CCD7 34.62%, #7B8CA1 100%);
+  --btn-shadow: 0px 8px 13.4px -2px rgba(222, 200, 161, 0.25);
+  
+  /* Fonts */
+  --font-primary: 'Geologica', sans-serif;
+  --font-heading: 'Constantia', serif;
+  --font-logo: 'Bergamasco', serif;
+  
+  /* Font Sizes */
+  --fs-small: 15px;
+  --fs-base: 16px;
+  --fs-medium: 18px;
+  --fs-large: 20px;
+  --fs-xl: 22px;
+  --fs-2xl: 26px;
+  --fs-3xl: 36px;
+  --fs-4xl: 45px;
+  --fs-5xl: 50px;
+  --fs-hero: 85px;
+  
+  /* Spacing */
+  --container-max-width: 1400px;
+  --container-padding: 0 80px;
+  --section-padding: 80px 0;
+  --section-padding-large: 100px 0;
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 25px;
+  --radius-xl: 35px;
+  --radius-2xl: 40px;
+  
+  /* Transitions */
+  --transition-fast: 0.3s;
+  --transition-medium: 0.4s;
+  
+  /* Shadows */
+  --shadow-card: 0px 4px 10.9px 6px rgba(0, 0, 0, 0.11);
+  --shadow-inset: inset 80px 0 100px -50px rgba(0, 0, 0, 0.5),
+                  inset -80px 0 100px -50px rgba(0, 0, 0, 0.5),
+                  inset 0 80px 100px -50px rgba(0, 0, 0, 0.3),
+                  inset 0 -80px 100px -50px rgba(0, 0, 0, 0.3);
+}

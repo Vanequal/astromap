@@ -1,0 +1,781 @@
+/* Profile Page Styles */
+
+.profile {
+    background: var(--bg-gradient-primary);
+    min-height: 100vh;
+}
+
+/* === SECTION 1: Profile Info === */
+.profile-header {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--section-padding-large);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.profile-header__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.profile-header__background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+/* Плавный градиентный переход */
+.profile-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to bottom,
+            rgba(13, 24, 45, 0) 0%,
+            rgba(13, 24, 45, 0.8) 50%,
+            rgba(13, 24, 45, 1) 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.profile-header__content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: var(--container-max-width);
+    padding: var(--container-padding);
+}
+
+.profile-header__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-4xl);
+    font-weight: 400;
+    color: var(--color-gold);
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+/* Карточка с информацией - УМЕНЬШЕНА */
+.profile-info-card {
+    background: rgba(9, 16, 29, 0.77);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: var(--radius-sm);
+    padding: 30px 30px;
+    max-width: 950px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 30px;
+    height: 200px;
+    align-items: start;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+/* Левая часть карточки */
+.profile-info-card__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.profile-info-card__left-top {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.profile-info-card__left-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: auto;
+}
+
+.profile-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.profile-info-item__label {
+    font-family: var(--font-primary);
+    font-size: 21px;
+    font-weight: 300;
+    color: rgba(139, 165, 196, 1);
+}
+
+.profile-info-item__value {
+    font-family: var(--font-primary);
+    font-size: 21px;
+    font-weight: 300;
+    color: var(--color-gold-light);
+}
+
+/* Центр карточки - Аватар УВЕЛИЧЕН */
+.profile-info-card__center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: -100px;
+    /* Аватар выходит за верхнюю границу */
+}
+
+.profile-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Правая часть карточки */
+.profile-info-card__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 100%;
+}
+
+.profile-info-card__right-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-edit-btn {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-fast);
+}
+
+.profile-edit-btn:hover {
+    transform: scale(1.1);
+}
+
+.profile-edit-btn img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(0) saturate(100%) invert(100%);
+    opacity: 0.7;
+    transition: opacity var(--transition-fast);
+}
+
+.profile-edit-btn:hover img {
+    opacity: 1;
+}
+
+.profile-info-card__right-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-end;
+    margin-top: auto;
+}
+
+.profile-info-item__value--white {
+    color: var(--color-white);
+}
+
+/* Декоративная звезда */
+.profile-header__star {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.profile-header__star img {
+    width: 30px;
+    height: auto;
+    opacity: 0.8;
+}
+
+/* Разделительная линия */
+.profile-header__divider {
+    width: 100%;
+    max-width: var(--container-max-width);
+    height: 1px;
+    background: var(--color-gray);
+    margin: 40px auto 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* === SECTION 2: Natal Chart === */
+.profile-chart {
+    position: relative;
+    padding: var(--section-padding-large);
+    z-index: 1;
+}
+
+.profile-chart__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-4xl);
+    font-weight: 400;
+    color: var(--color-gold);
+    margin-bottom: 60px;
+}
+
+.profile-chart__grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.profile-chart__card {
+    background: linear-gradient(90deg, #FFFFFF 0%, #E1ECFA 100%);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.profile-chart__card-title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+    color: rgba(23, 40, 72, 1);
+    text-align: center;
+}
+
+/* Контейнер для натальной карты и элементов */
+.natal-chart-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+}
+
+/* Натальная карта - изображение заглушка */
+.natal-chart-image {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+}
+
+/* Элементы стихий - ВНЕ карты, под левой плашкой */
+.elements-grid {
+    position: absolute;
+    top: 100%;
+    left: -30px;
+    margin-top: 25%;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 15px 20px;
+    justify-content: start;
+    align-items: center;
+}
+
+.element-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.element-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.element-circle--fire {
+    background: radial-gradient(50% 50% at 50% 50%, #DEC8A1 0%, #C1A36A 100%);
+}
+
+.element-circle--water {
+    background: radial-gradient(50% 50% at 50% 50%, #33578C 0%, #3D67A6 100%);
+}
+
+.element-circle--earth {
+    background: radial-gradient(50% 50% at 50% 50%, #7E8891 0%, #6E6E6E 100%);
+}
+
+.element-circle--air {
+    background: radial-gradient(50% 50% at 50% 50%, #98C1F3 0%, #7397C4 100%);
+}
+
+.element-text {
+    font-family: var(--font-primary);
+    font-size: 15px;
+    font-weight: 300;
+    color: white;
+}
+
+/* Кнопки натальной карты */
+.chart-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.chart-buttons .btn {
+    justify-content: space-between;
+    text-align: left;
+    font-size: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.chart-buttons .btn svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* Блок "Подробнее" снизу - БЕЗ фона */
+.profile-chart__full-card {
+    grid-column: 1 / -1;
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-top: 80px;
+}
+
+.chart-buttons-row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 450px;
+}
+
+.details-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    transition: transform var(--transition-fast);
+}
+
+.details-link:hover {
+    transform: translateX(5px);
+}
+
+.details-link__text {
+    font-family: var(--font-primary);
+    font-size: 27px;
+    font-weight: 300;
+    color: var(--color-gold-light);
+}
+
+.details-link svg {
+    width: 30px;
+    height: 30px;
+}
+
+/* Таблица положения планет */
+.planets-table {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px 30px;
+    align-items: start;
+}
+
+.planets-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.planets-column__header {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(23, 40, 72, 1);
+    margin-bottom: 5px;
+}
+
+.planet-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.planet-row img {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.planet-row__name {
+    font-family: var(--font-heading);
+    font-size: 19px;
+    font-weight: 400;
+    color: rgba(23, 40, 72, 1);
+}
+
+.planet-position,
+.planet-house {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--color-gray);
+}
+
+/* HR разделитель */
+.profile-chart__divider {
+    width: 100%;
+    height: 1px;
+    background: var(--color-gray);
+    margin-top: 60px;
+}
+
+
+/* === SECTION 3: Course/Interpretation === */
+.profile-interpretation {
+    position: relative;
+    padding: var(--section-padding-large);
+}
+
+.profile-interpretation__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.profile-interpretation__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-5xl);
+    font-weight: 400;
+    color: var(--color-gold);
+    text-transform: uppercase;
+}
+
+.profile-interpretation__link {
+    font-family: var(--font-primary);
+    font-size: 25px;
+    font-weight: 300;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.profile-interpretation__link:hover {
+    color: var(--color-gold-light);
+}
+
+.profile-interpretation__content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.profile-interpretation__intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    height: 100%;
+}
+
+.profile-interpretation__intro-title {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--color-white);
+    line-height: 1.3;
+    text-align: left;
+    margin: auto;
+}
+
+.profile-interpretation__intro .btn {
+    padding: 20px 40px;
+    font-size: var(--fs-medium);
+    width: 100%;
+    max-width: 400px;
+    margin-top: auto;
+}
+
+/* Модули курса */
+.course-section__modules {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1300px;
+}
+
+.course-section__module {
+    background: linear-gradient(180deg, rgba(16, 26, 44, 0.83) 0%, rgba(84, 89, 95, 0.83) 100%);
+    border: 0.93px solid rgba(255, 255, 255, 0.48);
+    border-radius: var(--radius-xl);
+    padding: 35px;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-fast);
+}
+
+.course-section__module:hover {
+    transform: translateY(-5px);
+}
+
+.course-section__module-icon {
+    margin-bottom: 25px;
+}
+
+.course-section__module-icon img {
+    width: 60px;
+}
+
+.course-section__module-title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-xl);
+    font-weight: 400;
+    color: var(--color-gold);
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.course-section__module-text {
+    font-size: var(--fs-small);
+    font-weight: 300;
+    color: var(--color-white);
+    line-height: 1.6;
+}
+
+/* HR разделитель */
+.profile-interpretation__divider {
+    width: 100%;
+    height: 1px;
+    background: var(--color-gray);
+    margin-top: 60px;
+}
+
+/* === SECTION 4: Consultations === */
+.profile-consultations {
+    position: relative;
+    padding: var(--section-padding-large);
+}
+
+.profile-consultations__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.profile-consultations__left {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.profile-consultations__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-4xl);
+    font-weight: 400;
+    color: var(--color-gold);
+}
+
+.profile-consultations__title-soon {
+    color: rgba(95, 113, 135, 1);
+}
+
+.profile-consultations__description {
+    font-family: var(--font-primary);
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--color-white);
+    line-height: 1.5;
+}
+
+.profile-consultations__left .btn {
+    padding: 20px 40px;
+    font-size: var(--fs-medium);
+    width: 100%;
+    max-width: 360px;
+}
+
+.profile-consultations__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.consultation-card {
+    background: rgba(16, 26, 44, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(8.8px);
+    padding: 50px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 180px;
+    transition: transform var(--transition-fast);
+}
+
+.consultation-card:hover {
+    transform: translateY(-3px);
+}
+
+.consultation-card__title {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--color-gold);
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .profile-info-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 80px 30px 40px;
+    }
+
+    .profile-info-card__center {
+        margin-top: -120px;
+        order: -1;
+    }
+
+    .profile-info-card__left,
+    .profile-info-card__right {
+        align-items: center;
+    }
+
+    .profile-chart__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .elements-grid {
+        position: static;
+        margin-top: 30px;
+        justify-content: center;
+    }
+
+    .profile-interpretation__content {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-consultations__content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .profile-header__title,
+    .profile-chart__title,
+    .profile-interpretation__title,
+    .profile-consultations__title {
+        font-size: var(--fs-3xl);
+    }
+
+    .profile-info-item__label,
+    .profile-info-item__value {
+        font-size: var(--fs-medium);
+    }
+
+    .profile-chart__card-title {
+        font-size: var(--fs-large);
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .profile-interpretation__header {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .profile-consultations__cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Переопределение базовых стилей кнопок для профиля */
+.profile .btn {
+    border-radius: var(--radius-2xl);
+    font-weight: 300;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    box-shadow: 0px 8px 13.4px -2px rgba(222, 200, 161, 0.25);
+    cursor: pointer;
+    font-family: var(--font-primary);
+}
+
+.profile .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 12px 20px -2px rgba(222, 200, 161, 0.35);
+}
+
+.profile .btn-primary {
+    background: linear-gradient(180deg, #DEC8A1 0%, #917F4E 100%);
+    color: var(--color-dark-blue);
+    padding: 18px 35px;
+    font-size: 18px;
+}
+
+.profile .btn-secondary {
+    background: linear-gradient(90deg, #C3CCD7 34.62%, #7B8CA1 100%);
+    color: var(--color-dark-blue);
+    padding: 18px 35px;
+    font-size: 18px;
+}
+
+/* Кнопки в секции натальной карты */
+.chart-buttons-row .btn {
+    padding: 18px 30px;
+    font-size: 18px;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80px;
+    /* или 65px, 60px - подбери */
+}
+
+.chart-buttons-row .btn svg {
+    flex-shrink: 0;
+}
+
+/* Кнопки в секции интерпретации */
+.profile-interpretation .btn {
+    padding: 20px 40px;
+    font-size: var(--fs-medium);
+    min-width: 280px;
+}
+
+/* Кнопки в секции консультаций */
+.profile-consultations .btn {
+    padding: 18px 40px;
+    font-size: var(--fs-medium);
+    min-width: 280px;
+}

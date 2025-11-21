@@ -1,0 +1,238 @@
+/* === MODAL === */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+
+.modal-overlay--active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: linear-gradient(90deg, #FFFFFF 0%, #E1ECFA 100%);
+  border-radius: 43px;
+  box-shadow: var(--shadow-card);
+  padding: 50px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.9);
+  transition: transform var(--transition-fast);
+}
+
+.modal-overlay--active .modal {
+  transform: scale(1);
+}
+
+.modal__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  color: rgba(23, 40, 72, 1);
+  text-align: center;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+.modal__title-accent {
+  font-family: var(--font-logo);
+  color: rgba(207, 158, 86, 1);
+}
+
+.modal__input {
+  width: 100%;
+  background: rgba(213, 226, 237, 1);
+  border-radius: var(--radius-sm);
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}
+
+.modal__input-label {
+  font-size: var(--fs-small);
+  font-weight: 300;
+  color: #000;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modal__input-field {
+  width: 100%;
+  background: transparent;
+  font-size: var(--fs-small);
+  font-weight: 300;
+  color: rgba(109, 114, 120, 1);
+  border: none;
+  outline: none;
+}
+
+.modal__input-field::placeholder {
+  color: rgba(109, 114, 120, 1);
+}
+
+.modal__text {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(23, 40, 72, 1);
+  text-align: center;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.modal__btn {
+  width: 100%;
+  background: var(--btn-gradient);
+  border-radius: var(--radius-2xl);
+  border: none;
+  box-shadow: var(--btn-shadow);
+  padding: 15px;
+  color: var(--color-dark-blue);
+  font-size: var(--fs-large);
+  font-weight: 300;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.modal__btn:hover {
+  transform: translateY(-2px);
+}
+
+.modal__footer-text {
+  font-size: 14px;
+  font-weight: 100;
+  color: var(--color-gray);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.modal__footer-link {
+  text-decoration: underline;
+  color: rgba(23, 40, 72, 1);
+}
+
+/* === MODAL SUBSCRIPTION === */
+.modal--subscription {
+  max-width: 1000px;
+  padding: 0;
+  display: flex;
+  overflow: hidden;
+  max-height: 90vh;
+  height: auto;
+}
+
+.modal__content {
+  flex: 1;
+  padding: 35px 45px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+
+.modal__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 22px 0;
+}
+
+.modal__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.modal__list-icon {
+  width: 27px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.modal__list-text {
+  font-size: 15.5px;
+  font-weight: 400;
+  background: linear-gradient(0deg, #162541 0%, #0D182D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.45;
+}
+
+.modal__checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+
+.modal__checkbox-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.modal__checkbox {
+  width: 19px;
+  height: 19px;
+  border: 1px solid rgba(117, 131, 149, 1);
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.modal__checkbox-label {
+  font-size: 11.5px;
+  font-weight: 300;
+  color: rgba(23, 40, 72, 1);
+  line-height: 1.35;
+}
+
+.modal__image {
+  width: 45%;
+  object-fit: cover;
+  flex-shrink: 0;
+  align-self: stretch;
+  z-index: 1;
+}
+
+/* === MODAL SETTINGS (Email & Password) === */
+.modal__title--dark {
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  color: var(--color-dark-blue);
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.modal__subtitle {
+  font-family: var(--font-heading);
+  font-size: var(--fs-medium);
+  font-weight: 400;
+  color: var(--color-dark-blue);
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.modal__btn--compact {
+  width: auto;
+  padding: 15px 60px;
+  margin: 30px auto 0;
+  display: block;
+}

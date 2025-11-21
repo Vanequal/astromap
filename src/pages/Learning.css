@@ -1,0 +1,292 @@
+/* === SECTION 1: Hero === */
+.learning-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 150px 0 50px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  
+  .learning-hero__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70vh;
+    z-index: -1;
+  }
+  
+  .learning-hero__background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+  }
+  
+  /* Градиент НА ФОНЕ */
+  .learning-hero__background::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background: linear-gradient(to bottom,
+      rgba(13, 24, 45, 0) 0%,
+      rgba(13, 24, 45, 0.8) 50%,
+      rgba(13, 24, 45, 1) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .learning-hero__content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: var(--container-max-width);
+    padding: var(--container-padding);
+    text-align: center;
+  }
+  
+  .learning-hero__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-4xl);
+    font-weight: 400;
+    color: var(--color-gold);
+  }
+  
+  /* === SECTION 2: Video === */
+  .learning-video {
+    position: relative;
+    padding: var(--section-padding-large);
+    padding-top: 80px;
+  }
+  
+  .learning-video__title {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--color-white);
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  /* Контролы видео */
+  .video-controls {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 30px;
+  }
+  
+  .video-controls__nav {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .video-controls__arrow {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform var(--transition-fast);
+  }
+  
+  .video-controls__arrow:hover {
+    transform: scale(1.1);
+  }
+  
+  .video-controls__arrow svg {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .video-controls__lesson {
+    font-family: var(--font-primary);
+    font-size: 25px;
+    font-weight: 300;
+    color: var(--color-white);
+    text-align: center;
+  }
+  
+  .video-controls__modules {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+  }
+  
+  .video-controls__modules:hover {
+    transform: translateX(3px);
+  }
+  
+  .video-controls__modules span {
+    font-family: var(--font-primary);
+    font-size: 25px;
+    font-weight: 300;
+    color: var(--color-gold-light);
+  }
+  
+  /* Плеер */
+  .video-player {
+    background: linear-gradient(180deg, rgba(16, 26, 44, 0.85) 0%, rgba(78, 85, 98, 0.85) 101.3%);
+    border: 1px solid var(--color-gold-light);
+    border-radius: 30px;
+    padding: 80px 40px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+  }
+  
+  .video-player img {
+    width: 200px;
+    height: auto;
+  }
+  
+  /* Описание видео */
+  .video-description {
+    background: rgba(16, 26, 44, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 25px;
+    padding: 30px 40px;
+    backdrop-filter: blur(8.8px);
+    margin-bottom: 40px;
+  }
+  
+  .video-description p {
+    font-family: var(--font-primary);
+    font-size: 23px;
+    font-weight: 300;
+    color: var(--color-white);
+    line-height: 1.6;
+  }
+  
+  /* Разделитель */
+  .learning-divider {
+    border: none;
+    height: 1px;
+    background: var(--color-gray);
+    margin: 0;
+  }
+  
+  /* === SECTION 3: Modules === */
+  .learning-modules {
+    position: relative;
+    padding: var(--section-padding-large);
+  }
+  
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  
+  /* Карточка модуля */
+  .module-card {
+    background: linear-gradient(180deg, rgba(16, 26, 44, 0.83) 0%, rgba(84, 89, 95, 0.83) 100%);
+    border: 0.93px solid rgba(255, 255, 255, 0.48);
+    border-radius: var(--radius-xl);
+    padding: 35px;
+    transition: transform var(--transition-fast);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .module-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .module-card__icon {
+    margin-bottom: 25px;
+  }
+  
+  .module-card__icon img {
+    width: 60px;
+  }
+  
+  .module-card__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-2xl);
+    font-weight: 400;
+    color: var(--color-gold);
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+  
+  /* Уроки */
+  .module-card__lessons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .module-card__lesson {
+    font-family: 'Constantia', var(--font-primary);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-white);
+    line-height: 1.4;
+  }
+  
+  .module-card__lesson-number {
+    color: var(--color-gold-light);
+    margin-right: 5px;
+  }
+  
+  /* Заблокированный модуль */
+  .module-card--locked {
+    position: relative;
+  }
+  
+  .module-card--locked .module-card__icon,
+  .module-card--locked .module-card__title {
+    filter: blur(3px);
+    opacity: 0.5;
+  }
+  
+  .module-card__lock {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(35, 35, 35, 0.82) 0%, rgba(31, 31, 31, 0.82) 100%);
+    backdrop-filter: blur(6.6px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 10;
+    border-radius: var(--radius-xl);
+  }
+  
+  .module-card__lock-icon {
+    width: 80px;
+    height: auto;
+  }
+  
+  .module-card__lock-text {
+    font-family: var(--font-heading);
+    font-size: var(--fs-medium);
+    font-weight: 400;
+    color: var(--color-gold);
+    text-align: center;
+    line-height: 1.5;
+  }
