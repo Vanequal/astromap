@@ -113,7 +113,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          
+
           <button className="form-section__btn">
             Построить<br />
             натальную карту
@@ -389,6 +389,29 @@ const Home = () => {
             Пройти вводный урок<br />
             бесплатно
           </h3>
+
+          {/* Видеоплеер */}
+          <div className="course-section__video-wrapper">
+            <div className="course-section__video-controls">
+              <button className="course-section__video-arrow course-section__video-arrow--left">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                  <path d="M24 28L14 20L24 12" stroke="rgba(222, 200, 161, 1)" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </button>
+
+              <h3 className="course-section__video-lesson">1. Что такое астрология?</h3>
+
+              <button className="course-section__video-arrow course-section__video-arrow--right">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                  <path d="M16 12L26 20L16 28" stroke="rgba(222, 200, 161, 1)" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="course-section__video-player">
+              <img src="/images/video.svg" alt="Video player" />
+            </div>
+          </div>
 
           <div className="course-section__program">
             <div className="course-section__program-star">

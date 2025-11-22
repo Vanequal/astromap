@@ -283,12 +283,25 @@
     align-items: center;
     gap: 15px;
     backdrop-filter: blur(8.8px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.planet-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(222, 200, 161, 0.6);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .planet-card__icon {
     width: 60px;
     height: 60px;
     object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.planet-card:hover .planet-card__icon {
+    transform: scale(1.1);
 }
 
 .planet-card__title {
@@ -338,6 +351,18 @@
     align-items: center;
     gap: 15px;
     backdrop-filter: blur(8.8px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.house-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(222, 200, 161, 0.6);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.house-card:hover .planet-card__icon {
+    transform: scale(1.1);
 }
 
 
@@ -361,6 +386,7 @@
     padding: 40px;
     box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.3);
     grid-column: 1 / -1;
+    transition: all 0.3s ease;
 }
 
 .detail-card__header {
@@ -408,6 +434,14 @@
     overflow: hidden;
     display: flex;
     box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.detail-card--split:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.4);
+    border-color: rgba(222, 200, 161, 0.4);
 }
 
 .detail-card__left {
@@ -424,6 +458,11 @@
 .detail-card__left img {
     width: 80px;
     height: 80px;
+    transition: transform 0.3s ease;
+}
+
+.detail-card--split:hover .detail-card__left img {
+    transform: scale(1.1);
 }
 
 .detail-card__right {
@@ -516,3 +555,362 @@
     font-weight: 300;
     border-radius: 40px;
 }
+
+/* === MOBILE ADAPTIVE === */
+@media (max-width: 1024px) {
+    .natal-main__grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .planets-grid--signs {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .planets-grid--houses-top {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .planets-grid--houses-bottom {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .natal-details__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .detail-card--large {
+      grid-column: 1 / -1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* Hero */
+    .natal-hero {
+      min-height: 40vh;
+      padding: 120px 20px 40px;
+    }
+  
+    .natal-hero__title {
+      font-size: var(--fs-2xl);
+    }
+  
+    /* Main Natal Chart */
+    .natal-main {
+      padding: 0 20px 60px;
+    }
+  
+    .natal-main__grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+  
+    .natal-main__card {
+      padding: 30px 20px;
+    }
+  
+    .natal-main__card-title {
+      font-size: var(--fs-large);
+    }
+  
+    .natal-chart-image {
+      max-width: 100%;
+    }
+  
+    .elements-grid {
+      position: static;
+      margin-top: 20px;
+      justify-content: center;
+    }
+  
+    .element-text {
+      color: rgba(23, 40, 72, 1);
+    }
+  
+    .planets-table {
+      gap: 15px 20px;
+    }
+  
+    .planet-row__name {
+      font-size: var(--fs-base);
+    }
+  
+    .natal-main__description {
+      font-size: var(--fs-base);
+      margin-top: 40px;
+      margin-bottom: 30px;
+    }
+  
+    .natal-main__buttons {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .natal-main__btn {
+      padding: 12px 40px;
+      font-size: var(--fs-base);
+    }
+  
+    /* Planets Section */
+    .natal-planets {
+      padding: 60px 20px;
+    }
+  
+    .natal-tabs {
+      max-width: 100%;
+      margin-bottom: 40px;
+    }
+  
+    .natal-tabs__item {
+      font-size: var(--fs-large);
+      padding: 12px 20px;
+    }
+  
+    .planets-grid--signs {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  
+    .planets-grid--houses-top {
+      grid-template-columns: 1fr;
+    }
+  
+    .planets-grid--houses-bottom {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .planet-card,
+    .house-card {
+      padding: 25px 15px;
+    }
+  
+    .planet-card__icon {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .planet-card__title {
+      font-size: var(--fs-base);
+    }
+  
+    /* Details Section */
+    .natal-details {
+      padding: 60px 20px;
+    }
+  
+    .natal-details__grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  
+    .detail-card--large {
+      padding: 30px 20px;
+    }
+  
+    .detail-card__icon {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .detail-card__title {
+      font-size: var(--fs-large);
+    }
+  
+    .detail-card--split {
+      flex-direction: column;
+    }
+  
+    .detail-card__left {
+      padding: 30px;
+    }
+  
+    .detail-card__left img {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .detail-card__right {
+      padding: 20px !important;
+    }
+  
+    .detail-card__subtitle {
+      font-size: var(--fs-base);
+    }
+  
+    /* Subscription Section */
+    .natal-subscription {
+      padding: 60px 20px;
+    }
+  
+    .natal-subscription__title {
+      font-size: var(--fs-2xl);
+      margin-bottom: 40px;
+    }
+  
+    .subscription-benefits {
+      gap: 15px;
+    }
+  
+    .benefit-card {
+      padding: 25px 20px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .benefit-card__title {
+      font-size: var(--fs-base);
+    }
+  
+    .benefit-card__text {
+      font-size: var(--fs-base);
+    }
+  
+    .natal-subscription__btn {
+      padding: 12px 60px;
+      font-size: var(--fs-base);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Hero */
+    .natal-hero {
+      padding: 100px 15px 30px;
+    }
+  
+    .natal-hero__title {
+      font-size: var(--fs-xl);
+    }
+  
+    /* Main */
+    .natal-main {
+      padding: 0 15px 40px;
+    }
+  
+    .natal-main__card {
+      padding: 20px 15px;
+    }
+  
+    .natal-main__card-title {
+      font-size: var(--fs-base);
+    }
+  
+    .planets-table {
+      gap: 12px 15px;
+    }
+  
+    .planet-row img {
+      width: 24px;
+      height: 24px;
+    }
+  
+    .planet-row__name {
+      font-size: var(--fs-small);
+    }
+  
+    .planet-position,
+    .planet-house {
+      font-size: 12px;
+    }
+  
+    .natal-main__description {
+      font-size: var(--fs-small);
+    }
+  
+    .natal-main__btn {
+      padding: 12px 30px;
+      font-size: var(--fs-small);
+    }
+  
+    /* Planets */
+    .natal-planets {
+      padding: 40px 15px;
+    }
+  
+    .natal-tabs__item {
+      font-size: var(--fs-base);
+      padding: 10px 15px;
+    }
+  
+    .planets-grid--signs {
+      grid-template-columns: 1fr;
+    }
+  
+    .planets-grid--houses-bottom {
+      grid-template-columns: 1fr;
+    }
+  
+    .planet-card,
+    .house-card {
+      padding: 20px 15px;
+    }
+  
+    .planet-card__icon {
+      width: 45px;
+      height: 45px;
+    }
+  
+    /* Details */
+    .natal-details {
+      padding: 40px 15px;
+    }
+  
+    .detail-card--large {
+      padding: 20px 15px;
+    }
+  
+    .detail-card__title {
+      font-size: var(--fs-base);
+    }
+  
+    .detail-card__text {
+      font-size: 14px;
+    }
+  
+    .detail-card__left {
+      padding: 25px;
+    }
+  
+    .detail-card__left img {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .detail-card__right {
+      padding: 15px !important;
+    }
+  
+    .detail-card__subtitle {
+      font-size: var(--fs-small);
+    }
+  
+    .detail-card__description {
+      font-size: 13px;
+    }
+  
+    /* Subscription */
+    .natal-subscription {
+      padding: 40px 15px;
+    }
+  
+    .natal-subscription__title {
+      font-size: var(--fs-xl);
+    }
+  
+    .benefit-card {
+      padding: 20px 15px;
+    }
+  
+    .benefit-card__title {
+      font-size: var(--fs-small);
+    }
+  
+    .benefit-card__text {
+      font-size: var(--fs-small);
+    }
+  
+    .natal-subscription__btn {
+      padding: 12px 40px;
+      font-size: var(--fs-small);
+    }
+  }

@@ -572,11 +572,67 @@
   color: var(--color-gold-light);
 }
 
+/* Видео урок */
+.course-section__video-wrapper {
+  max-width: 1400px;
+  margin: 50px 0;
+}
+
+.course-section__video-controls {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.course-section__video-arrow {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform var(--transition-fast);
+}
+
+.course-section__video-arrow:hover {
+  transform: scale(1.1);
+}
+
+.course-section__video-arrow svg {
+  width: 40px;
+  height: 40px;
+}
+
+.course-section__video-lesson {
+  font-family: var(--font-primary);
+  font-size: 25px;
+  font-weight: 300;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.course-section__video-player {
+  background: linear-gradient(180deg, rgba(16, 26, 44, 0.85) 0%, rgba(78, 85, 98, 0.85) 101.3%);
+  border: 1px solid var(--color-gold-light);
+  border-radius: 30px;
+  padding: 80px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  width: 100%;
+}
+
+.course-section__video-player img {
+  width: 150px;
+  height: auto;
+}
+
 .course-section__modules {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  max-width: 1300px;
+  max-width: 1150px !important;
   margin: 0 auto;
 }
 
@@ -937,4 +993,375 @@
   width: 400px;
   height: auto;
   border-radius: 20px;
+}
+
+/* === MOBILE ADAPTIVE === */
+@media (max-width: 1024px) {
+  /* Hero */
+  .hero__title {
+    font-size: 120px;
+  }
+
+  .hero__subtitle {
+    font-size: var(--fs-large);
+  }
+
+  /* About Section Cards */
+  .about-section__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Subscription Benefits */
+  .subscription-section__benefits-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .subscription-section__benefit:nth-child(3) {
+    border-right: none;
+  }
+
+  /* Course Modules */
+  .course-section__modules {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* About Us Features */
+  .about-us-section__features {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hero */
+  .hero {
+    min-height: 70vh;
+    padding: 100px 0 40px;
+  }
+
+  .hero__background {
+    width: 155%;
+  }
+
+  .hero__title {
+    font-size: 80px;
+  }
+
+  .hero__subtitle {
+    font-size: var(--fs-base);
+  }
+
+  /* Form Section */
+  .form-section__title {
+    font-size: var(--fs-3xl);
+  }
+
+  .form-section__form {
+    padding: 30px 20px;
+  }
+
+  .form-section__btn {
+    padding: 12px 60px;
+  }
+
+  /* About Section */
+  .about-section__top {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-section__title {
+    font-size: var(--fs-3xl);
+  }
+
+  .about-section__text {
+    font-size: var(--fs-base);
+  }
+
+  .about-section__image img {
+    width: 300px;
+  }
+
+  .about-section__cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about-section__bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Question Section */
+  .question-section__title {
+    font-size: var(--fs-3xl);
+  }
+
+  .question-section__content {
+    flex-direction: column;
+  }
+
+  .question-section__subtitle {
+    font-size: var(--fs-2xl);
+    text-align: center;
+  }
+
+  .question-section__options {
+    width: 100%;
+  }
+
+  .question-section__right img {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  /* Subscription Section */
+  .subscription-section__title {
+    font-size: var(--fs-2xl);
+  }
+
+  .subscription-section__text {
+    font-size: var(--fs-base);
+  }
+
+  .subscription-section__benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subscription-section__benefit {
+    border-right: none;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+    padding: 25px;
+  }
+
+  .subscription-section__benefit:last-child {
+    border-bottom: none;
+  }
+
+  .subscription-section__btn {
+    padding: 12px 40px;
+  }
+
+  /* Course Section */
+  .course-section__title {
+    font-size: var(--fs-2xl);
+  }
+
+  .course-section__subtitle {
+    font-size: var(--fs-xl);
+  }
+
+  .course-section__video-controls {
+    gap: 20px;
+  }
+
+  .course-section__video-player {
+    padding: 60px 20px;
+    min-height: 300px;
+  }
+
+  .course-section__modules {
+    grid-template-columns: 1fr;
+  }
+
+  /* Astrologer Section */
+  .astrologer-section__title {
+    font-size: var(--fs-3xl);
+  }
+
+  .astrologer-section__cards {
+    flex-direction: column;
+  }
+
+  .astrologer-section__btn {
+    padding: 12px 60px;
+  }
+
+  /* About Us Section */
+  .about-us-section__title {
+    font-size: var(--fs-3xl);
+  }
+
+  .about-us-section__features {
+    flex-direction: column;
+  }
+
+  .about-us-section__feature {
+    max-width: 100%;
+  }
+
+  .about-us-section__divider {
+    width: 100%;
+  }
+
+  /* FAQ Section */
+  .faq-section__question-left {
+    gap: 20px;
+  }
+
+  .faq-section__question-icon img {
+    width: 25px;
+  }
+
+  .faq-section__question-text {
+    font-size: var(--fs-base);
+  }
+
+  /* CTA Section */
+  .cta-section__container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-section__title {
+    font-size: var(--fs-3xl);
+  }
+
+  .cta-section__btn {
+    width: 100%;
+  }
+
+  .cta-section__image img {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hero */
+  .hero {
+    min-height: 60vh;
+    padding: 80px 0 30px;
+  }
+
+  .hero__title {
+    font-size: 60px;
+  }
+
+  .hero__subtitle {
+    font-size: var(--fs-small);
+  }
+
+  /* Form Section */
+  .form-section__title {
+    font-size: var(--fs-2xl);
+  }
+
+  .form-section__form-title {
+    font-size: var(--fs-xl);
+  }
+
+  .form-section__btn {
+    padding: 12px 40px;
+  }
+
+  /* About Section */
+  .about-section__title {
+    font-size: var(--fs-2xl);
+  }
+
+  .about-section__image img {
+    width: 250px;
+  }
+
+  .about-section__card {
+    padding: 20px;
+  }
+
+  /* Question Section */
+  .question-section__title {
+    font-size: var(--fs-2xl);
+  }
+
+  .question-section__subtitle {
+    font-size: var(--fs-xl);
+  }
+
+  .question-section__option {
+    padding: 15px 20px;
+  }
+
+  /* Subscription Section */
+  .subscription-section__title {
+    font-size: var(--fs-xl);
+  }
+
+  .subscription-section__benefit {
+    padding: 20px;
+  }
+
+  .subscription-section__benefit-title {
+    font-size: var(--fs-xl);
+  }
+
+  /* Course Section */
+  .course-section__title {
+    font-size: var(--fs-xl);
+  }
+
+  .course-section__subtitle {
+    font-size: var(--fs-large);
+  }
+
+  .course-section__video-lesson {
+    font-size: var(--fs-base);
+  }
+
+  .course-section__video-player {
+    padding: 40px 20px;
+    min-height: 250px;
+  }
+
+  .course-section__module {
+    padding: 25px;
+  }
+
+  /* Astrologer Section */
+  .astrologer-section__title {
+    font-size: var(--fs-2xl);
+  }
+
+  .astrologer-section__card {
+    padding: 25px;
+  }
+
+  /* About Us Section */
+  .about-us-section__title {
+    font-size: var(--fs-2xl);
+  }
+
+  .about-us-section__feature {
+    padding: 25px;
+    min-height: auto;
+  }
+
+  .about-us-section__feature-title {
+    font-size: var(--fs-large);
+  }
+
+  /* FAQ Section */
+  .faq-section__title {
+    font-size: var(--fs-2xl);
+  }
+
+  .faq-section__question {
+    padding: 20px 0;
+  }
+
+  .faq-section__question-text {
+    font-size: var(--fs-small);
+  }
+
+  .faq-section__answer-text {
+    margin-left: 0;
+  }
+
+  .faq-section__item--active .faq-section__answer {
+    padding: 10px 0 20px 10px;
+  }
+
+  /* CTA Section */
+  .cta-section__title {
+    font-size: var(--fs-2xl);
+  }
 }

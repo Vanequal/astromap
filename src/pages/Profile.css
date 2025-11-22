@@ -268,7 +268,7 @@
 .natal-chart-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     align-items: center;
     position: relative;
 }
@@ -282,15 +282,12 @@
 
 /* Элементы стихий - ВНЕ карты, под левой плашкой */
 .elements-grid {
-    position: absolute;
-    top: 100%;
-    left: -30px;
-    margin-top: 25%;
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 15px 20px;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
+    margin-top: 20px;
 }
 
 .element-item {
@@ -676,9 +673,18 @@
     }
 
     .elements-grid {
-        position: static;
-        margin-top: 30px;
-        justify-content: center;
+        gap: 12px 15px;
+        margin-top: 30px !important;
+        margin-left: 20px !important;
+    }
+
+    .element-circle {
+        width: 18px;
+        height: 18px;
+    }
+
+    .element-text {
+        font-size: 13px;
     }
 
     .profile-interpretation__content {
@@ -715,7 +721,9 @@
     .profile-interpretation__header {
         flex-direction: column;
         gap: 20px;
-        align-items: flex-start;
+        text-align: center;
+        margin-bottom: 40px;
+        align-items: center;
     }
 
     .profile-consultations__cards {
@@ -778,4 +786,371 @@
     padding: 18px 40px;
     font-size: var(--fs-medium);
     min-width: 280px;
+}
+
+/* === MOBILE ADAPTIVE === */
+@media (max-width: 1024px) {
+    .profile-chart__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-header__content {
+        padding: 10px;
+    }
+
+    .course-section__modules {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .profile-interpretation__content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .profile-consultations__content {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-buttons-row {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Profile Header */
+    .profile-header {
+        min-height: 80vh;
+        padding: 100px 20px 40px;
+    }
+
+    .profile-header__title {
+        font-size: var(--fs-2xl);
+        margin-bottom: 60px;
+    }
+
+    .profile-info-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 80px 20px 30px;
+        height: auto;
+        gap: 20px;
+    }
+
+    .profile-info-card__center {
+        margin-top: -100px;
+        order: -1;
+    }
+
+    .profile-avatar {
+        width: 150px;
+        height: 150px;
+    }
+
+    .profile-info-card__left,
+    .profile-info-card__right {
+        align-items: center;
+    }
+
+    .profile-info-card__right-bottom {
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .profile-info-item__label,
+    .profile-info-item__value {
+        font-size: var(--fs-base);
+    }
+
+    /* Profile Chart */
+    .profile-chart {
+        padding: 60px 20px;
+    }
+
+    .profile-chart__title {
+        font-size: var(--fs-2xl);
+        margin-bottom: 40px;
+    }
+
+    .profile-chart__card {
+        padding: 30px 20px;
+    }
+
+    .profile-chart__card:nth-child(2){
+        margin-top: 60px;
+    }
+
+    .profile-chart__card-title {
+        font-size: var(--fs-large);
+    }
+
+    .natal-chart-image {
+        max-width: 100%;
+    }
+
+    .elements-grid {
+        gap: 10px 12px;
+        margin-top: 15px;
+    }
+
+    .element-circle {
+        width: 16px;
+        height: 16px;
+    }
+
+    .element-text {
+        font-size: 12px;
+    }
+
+    .planets-table {
+        gap: 15px 20px;
+    }
+
+    .planet-row__name {
+        font-size: var(--fs-base);
+    }
+
+    .profile-chart__full-card {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 0;
+        margin-top: 40px;
+    }
+
+    .chart-buttons-row {
+        width: 100%;
+    }
+
+    .details-link__text {
+        font-size: var(--fs-large);
+    }
+
+    /* Interpretation Section */
+    .profile-interpretation {
+        padding: 60px 20px;
+    }
+
+    .profile-interpretation__header {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .profile-interpretation__title {
+        font-size: var(--fs-2xl);
+    }
+
+    .profile-interpretation__link {
+        font-size: var(--fs-base);
+    }
+
+    .profile-interpretation__content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .profile-interpretation__intro-title {
+        font-size: var(--fs-xl);
+        text-align: center;
+    }
+
+    .profile-interpretation__intro {
+        align-items: stretch;
+    }
+
+    .profile-interpretation__intro .btn {
+        max-width: 100%;
+    }
+
+    .course-section__modules {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .course-section__module {
+        min-height: auto;
+        padding: 25px;
+    }
+
+    .profile-info-card__left-bottom {
+        margin-top: 20px;
+    }
+
+    .course-section__module-title {
+        font-size: var(--fs-large);
+    }
+
+    /* Consultations Section */
+    .profile-consultations {
+        padding: 60px 20px;
+    }
+
+    .profile-consultations__title {
+        font-size: var(--fs-2xl);
+    }
+
+    .profile-consultations__description {
+        font-size: var(--fs-base);
+    }
+
+    .profile-consultations__left .btn {
+        max-width: 100%;
+    }
+
+    .profile-consultations__cards {
+        grid-template-columns: 1fr;
+    }
+
+    .consultation-card {
+        padding: 40px 20px;
+        min-height: 150px;
+    }
+
+    /* Buttons */
+    .profile .btn-primary,
+    .profile .btn-secondary {
+        padding: 15px 25px;
+        font-size: var(--fs-base);
+    }
+
+    .chart-buttons-row .btn {
+        padding: 15px 20px;
+        font-size: var(--fs-base);
+        min-height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Profile Header */
+    .profile-header {
+        padding: 80px 15px 30px;
+    }
+
+    .profile-header__title {
+        font-size: var(--fs-xl);
+        margin-bottom: 40px;
+    }
+
+    .profile-info-card {
+        padding: 70px 15px 25px;
+    }
+
+    .profile-avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-info-item__label,
+    .profile-info-item__value {
+        font-size: var(--fs-small);
+    }
+
+    /* Profile Chart */
+    .profile-chart {
+        padding: 40px 15px;
+    }
+
+    .profile-chart__title {
+        font-size: var(--fs-xl);
+    }
+
+    .profile-chart__card {
+        padding: 20px 15px;
+    }
+
+    .profile-chart__card-title {
+        font-size: var(--fs-base);
+    }
+
+    .planets-table {
+        gap: 12px 15px;
+    }
+
+    .planet-row img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .planet-row__name {
+        font-size: var(--fs-small);
+    }
+
+    .planet-position,
+    .planet-house {
+        font-size: 12px;
+    }
+
+    .profile-chart__full-card {
+        padding: 20px 0;
+        margin-top: 30px;
+    }
+
+    .details-link__text {
+        font-size: var(--fs-base);
+    }
+
+    /* Interpretation Section */
+    .profile-interpretation {
+        padding: 40px 15px;
+    }
+
+    .profile-interpretation__title {
+        font-size: var(--fs-xl);
+    }
+
+    .profile-interpretation__link {
+        font-size: var(--fs-small);
+    }
+
+    .profile-interpretation__intro-title {
+        font-size: var(--fs-large);
+    }
+
+    .course-section__module {
+        padding: 20px;
+    }
+
+    .course-section__module-icon img {
+        width: 50px;
+    }
+
+    .course-section__module-title {
+        font-size: var(--fs-base);
+    }
+
+    /* Consultations Section */
+    .profile-consultations {
+        padding: 40px 15px;
+    }
+
+    .profile-consultations__title {
+        font-size: var(--fs-xl);
+    }
+
+    .profile-consultations__description {
+        font-size: var(--fs-small);
+    }
+
+    .consultation-card {
+        padding: 30px 15px;
+        min-height: 120px;
+    }
+
+    .consultation-card__title {
+        font-size: var(--fs-large);
+    }
+
+    /* Buttons */
+    .profile .btn-primary,
+    .profile .btn-secondary {
+        padding: 12px 20px;
+        font-size: var(--fs-small);
+    }
+
+    .chart-buttons-row .btn {
+        padding: 12px 15px;
+        font-size: var(--fs-small);
+        min-height: 60px;
+    }
 }

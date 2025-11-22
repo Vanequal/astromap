@@ -1,7 +1,7 @@
 /* === HEADER === */
 .header {
   padding: 30px 0;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -255,4 +255,116 @@
 
 .burger-menu__login-btn:hover {
   background: rgba(95, 113, 135, 1);
+}
+
+/* === MOBILE ADAPTIVE === */
+@media (max-width: 768px) {
+  .header__container {
+    padding: 0 20px;
+  }
+
+  .header__logo img {
+    height: 60px;
+  }
+
+  /* На мобилке ВСЕГДА скрываем навигацию и кнопку */
+  .header__nav {
+    display: none !important;
+  }
+
+  .header__btn {
+    display: none !important;
+  }
+
+  /* На мобилке ВСЕГДА показываем бургер */
+  .header__burger {
+    display: block !important;
+  }
+
+  /* ИСПРАВЛЕНИЕ: бургер-меню на всех мобильных */
+  .burger-menu {
+    width: 100%;
+    right: -100%;
+  }
+
+  .burger-menu--active {
+    right: 0;
+  }
+}
+
+/* На десктопе логика такая: */
+@media (min-width: 769px) {
+
+  /* Если isMain=true - показываем навигацию, прячем бургер */
+  .header--main .header__burger {
+    display: none;
+  }
+
+  .header--main .header__nav,
+  .header--main .header__btn {
+    display: flex;
+  }
+
+  /* Если isMain=false - показываем бургер, прячем навигацию */
+  .header--inner .header__nav,
+  .header--inner .header__btn {
+    display: none;
+  }
+
+  .header--inner .header__burger {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 15px 0;
+  }
+
+  .header__container {
+    padding: 0 15px;
+  }
+
+  .header__logo img {
+    height: 50px;
+  }
+
+  .burger-menu {
+    padding: 20px;
+  }
+
+  .burger-menu__close {
+    right: 20px;
+  }
+
+  .burger-menu__title {
+    font-size: 28px;
+  }
+
+  .burger-menu__avatar img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .burger-menu__profile-btn {
+    font-size: var(--fs-base);
+    padding: 10px;
+  }
+
+  .burger-menu__star img {
+    width: 30px;
+  }
+
+  .burger-menu__nav-link {
+    font-size: var(--fs-base);
+  }
+
+  .burger-menu__settings-text {
+    font-size: var(--fs-base);
+  }
+
+  .burger-menu__login-btn {
+    padding: 10px 20px;
+    font-size: var(--fs-small);
+  }
 }

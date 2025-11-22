@@ -78,7 +78,7 @@
   /* Контролы видео */
   .video-controls {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 100px 1fr 100px; /* Фиксированная ширина для стрелок */
     align-items: center;
     gap: 40px;
     margin-bottom: 30px;
@@ -87,8 +87,8 @@
   .video-controls__nav {
     display: flex;
     gap: 20px;
+    justify-content: center; /* Центрируем стрелки в своей области */
   }
-  
   .video-controls__arrow {
     background: transparent;
     border: none;
@@ -122,6 +122,12 @@
     gap: 10px;
     cursor: pointer;
     transition: transform var(--transition-fast);
+    justify-content: flex-end; /* Выравниваем содержимое вправо */
+    text-wrap: nowrap;
+  }
+
+  .video-controls__modules svg {
+    flex-shrink: 0; /* Не даём стрелке сжиматься */
   }
   
   .video-controls__modules:hover {
@@ -233,22 +239,24 @@
   .module-card__lessons {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
-  
+
   .module-card__lesson {
-    font-family: 'Constantia', var(--font-primary);
-    font-size: 14px;
-    font-weight: 400;
+    font-family: var(--font-heading);
+    font-size: 16.5px;
+    font-weight: 300;
     color: var(--color-white);
-    line-height: 1.4;
+    line-height: 1.5;
+    max-width: 95%; /* Немного отступ справа */
   }
   
   .module-card__lesson-number {
     color: var(--color-gold-light);
-    margin-right: 5px;
+    margin-right: 6px;
+    font-weight: 400;
+    font-size: 20px;
   }
-  
   /* Заблокированный модуль */
   .module-card--locked {
     position: relative;
@@ -290,3 +298,221 @@
     text-align: center;
     line-height: 1.5;
   }
+
+  /* === MOBILE ADAPTIVE === */
+@media (max-width: 1024px) {
+  .modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hero */
+  .learning-hero {
+    min-height: 40vh;
+    padding: 120px 20px 40px;
+  }
+
+  .learning-hero__background {
+    height: 50vh;
+  }
+
+  .learning-hero__title {
+    font-size: var(--fs-2xl);
+  }
+
+  /* Video Section */
+  .learning-video {
+    padding: 60px 20px;
+    padding-top: 40px;
+  }
+
+  .learning-video__title {
+    font-size: var(--fs-large);
+    margin-bottom: 30px;
+  }
+
+  .video-controls {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .video-controls__nav {
+    order: 2;
+  }
+
+  .video-controls__lesson {
+    font-size: var(--fs-base);
+    order: 1;
+  }
+
+  .video-controls__modules {
+    order: 3;
+    justify-content: center;
+  }
+
+  .video-controls__modules span {
+    font-size: var(--fs-base);
+  }
+
+  .video-player {
+    padding: 60px 20px;
+    min-height: 400px;
+    margin-bottom: 20px;
+  }
+
+  .video-player img {
+    width: 120px;
+  }
+
+  .video-description {
+    padding: 20px 25px;
+    margin-bottom: 30px;
+  }
+
+  .video-description p {
+    font-size: var(--fs-base);
+  }
+
+  /* Modules Section */
+  .learning-modules {
+    padding: 60px 20px;
+  }
+
+  .modules-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .module-card {
+    padding: 25px;
+    min-height: auto;
+  }
+
+  .module-card__icon img {
+    width: 50px;
+  }
+
+  .module-card__title {
+    font-size: var(--fs-large);
+    margin-bottom: 15px;
+  }
+
+  .module-card__lesson {
+    font-size: 15px;
+  }
+
+  .module-card__lesson-number {
+    font-size: 18px;
+  }
+
+  .module-card__lock-icon {
+    width: 60px;
+  }
+
+  .module-card__lock-text {
+    font-size: var(--fs-base);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hero */
+  .learning-hero {
+    padding: 100px 15px 30px;
+  }
+
+  .learning-hero__background {
+    height: 40vh;
+  }
+
+  .learning-hero__title {
+    font-size: var(--fs-xl);
+  }
+
+  /* Video Section */
+  .learning-video {
+    padding: 40px 15px;
+    padding-top: 30px;
+  }
+
+  .learning-video__title {
+    font-size: var(--fs-base);
+    margin-bottom: 20px;
+  }
+
+  .video-controls {
+    gap: 15px;
+  }
+
+  .video-controls__arrow svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .video-controls__lesson {
+    font-size: var(--fs-small);
+  }
+
+  .video-controls__modules span {
+    font-size: var(--fs-small);
+  }
+
+  .video-controls__modules svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .video-player {
+    padding: 40px 15px;
+    min-height: 300px;
+  }
+
+  .video-player img {
+    width: 100px;
+  }
+
+  .video-description {
+    padding: 15px 20px;
+  }
+
+  .video-description p {
+    font-size: var(--fs-small);
+  }
+
+  /* Modules Section */
+  .learning-modules {
+    padding: 40px 15px;
+  }
+
+  .modules-grid {
+    gap: 15px;
+  }
+
+  .module-card {
+    padding: 20px;
+  }
+
+  .module-card__icon img {
+    width: 45px;
+  }
+
+  .module-card__title {
+    font-size: var(--fs-base);
+  }
+
+  .module-card__lesson {
+    font-size: 14px;
+  }
+
+  .module-card__lesson-number {
+    font-size: 16px;
+  }
+
+  .module-card__lock-icon {
+    width: 50px;
+  }
+
+  .module-card__lock-text {
+    font-size: var(--fs-small);
+  }
+}

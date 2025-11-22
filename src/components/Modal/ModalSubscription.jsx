@@ -8,7 +8,7 @@ const ModalSubscription = ({ isOpen, onClose }) => {
       <div className="modal modal--subscription" onClick={(e) => e.stopPropagation()}>
         <button className="modal__close" onClick={onClose}>
           <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-            <path d="M2 2L28 28M28 2L2 28" stroke="#fff" strokeWidth="2"/>
+            <path d="M2 2L28 28M28 2L2 28" stroke="rgba(23, 40, 72, 1)" strokeWidth="2"/>
           </svg>
         </button>
 
